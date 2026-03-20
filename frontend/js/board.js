@@ -19,8 +19,8 @@ stream.onmessage = (event) => {
 
 stream.onerror = (err) => console.error("SSE Error:", err);
 
-const POSTIT_SIZE = 280;
-const SCROLL_SPEED = 1.3; // Velocidade suave do scroll vertical (subindo)
+const POSTIT_SIZE = 180;
+const SCROLL_SPEED = 1.2; // Velocidade suave do scroll vertical (subindo)
 
 function spawnPostIt(data, delayOffsetY = 0) {
   const el = document.createElement('div');
@@ -96,7 +96,21 @@ function animate() {
         }
       });
 
-      // 2. Coloca ele magicamente lá no fundo (+50 margem relax)
+      // 2. Atualizando posição do post-it
+      const maxWidth = window.innerWidth - 80; // Levando a borda de madeira do CSS em conta
+      const maxLanes = Math.floor(maxWidth / POSTIT_SIZE) || 1;
+      const lane = Math.floor(Math.random() * maxLanes);
+
+      const paddingX = (maxWidth - (maxLanes * POSTIT_SIZE)) / 2;
+      const x = paddingX + lane * POSTIT_SIZE + (Math.random() * 40 - 20); // Distribuição com leve bagunça
+      p.el.style.left = `${x}px`;
+
+      // 3. Randomiza a posição em eixo Z do post-it
+      const zind = Math.floor(Math.random() * 14) + 1
+      p.zind = zind
+      p.el.style.zIndex = zind
+
+      // 4. Coloca ele magicamente lá no fundo (+50 margem relax)
       p.y = Math.max(window.innerHeight + 50, lowestYInLane + p.width * 1.1);
       // Muda a inclinação pra fingir que é um post it novo subindo! Reuso eterno de DOM pra performance
       p.rotation = Math.floor(Math.random() * 20) - 10;

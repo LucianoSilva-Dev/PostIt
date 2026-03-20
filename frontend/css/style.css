@@ -2,8 +2,7 @@
   --bg-color: #1b2621;
   --text-color: #f4f4f5;
   --accent: #FFE566;
-  --font-main: 'Syne', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-main: "Shadows Into Light Two", cursive;
   --font-hand: 'Caveat', cursive;
   --post-color: #000000;
 }
@@ -25,7 +24,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   color: var(--text-color);
-  font-family: var(--font-hand);
+  font-family: var(--font-main);
   font-size: 20px;
 }
 
@@ -117,6 +116,7 @@ textarea {
   bottom: 5px;
   color: var(--post-color);
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+  font-family: var(--font-hand);
 }
 
 textarea:focus {
