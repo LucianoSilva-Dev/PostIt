@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const btn = form.querySelector('.btn-submit');
     const originalText = btn.textContent;
-    btn.textContent = 'MANIFESTING...';
+    btn.textContent = 'Enviando...';
     btn.disabled = true;
 
     try {

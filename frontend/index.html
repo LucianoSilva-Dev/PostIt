@@ -18,13 +18,13 @@
   <div class="chalkboard-overlay"></div>
   <main class="container">
     <header class="header">
-      <h1>IDEA <br> VAULT</h1>
-      <p>Materialize the future.</p>
+      <h1>Dream Viewer</h1>
+      <p>Onde sonhos se tornam ideias</p>
     </header>
 
     <form id="idea-form" class="form">
       <div class="input-group">
-        <label for="idea-text">THE VISION / MAX 110 CHARS</label>
+        <label for="idea-text">Escreva seus sonhos e ideias</label>
         <div class="post-it">
           <textarea id="idea-text" maxlength="110" placeholder="Type your entrepreneurial dream..." required></textarea>
           <span class="char-count">0 / 110</span>
@@ -32,19 +32,21 @@
       </div>
 
       <div class="color-picker-wrapper">
-        <label for="idea-color">POST-IT AURA (Color)</label>
+        <label for="idea-color">Cor do Post-It</label>
         <input type="color" id="idea-color" value="#FFE566">
       </div>
 
       <div class="color-picker-wrapper">
-        <label for="idea-text-color">POST-IT TEXT COLOR</label>
+        <label for="idea-text-color">Cor do Texto do Post-It</label>
         <input type="color" id="idea-text-color" value="#000">
       </div>
 
-      <button type="submit" class="btn-submit">MANIFEST [ENTER]</button>
+      <button type="submit" class="btn-submit">
+        <p>Enviar Post-It (Enter)</p>
+      </button>
     </form>
 
-    <div id="toast" class="toast">Idea Sent to the Board.</div>
+    <div id="toast" class="toast">Post-it enviado com sucesso</div>
   </main>
   <script src="js/api.js"></script>
   <script src="js/submit.js"></script>

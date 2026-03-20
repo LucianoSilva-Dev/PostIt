@@ -19,13 +19,14 @@ body {
   height: 100dvh;
   background-color: var(--bg-color);
   display: flex;
-  flex-grow: 1;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
   overflow-y: auto;
   color: var(--text-color);
   font-family: var(--font-hand);
+  font-size: 20px;
 }
 
 body::after {
@@ -58,6 +59,14 @@ body::after {
       rgba(255, 255, 255, 0.02) 4px);
   pointer-events: none;
   z-index: 0;
+}
+
+form {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-group {
@@ -104,7 +113,7 @@ textarea {
 
 .char-count {
   position: absolute;
-  right: 5px;
+  right: 10px;
   bottom: 5px;
   color: var(--post-color);
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
@@ -124,18 +133,54 @@ textarea:focus {
   content: "";
 }
 
+.color-picker-wrapper {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.color-picker-wrapper input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  height: 40px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--accent);
+  border: none;
+  color: var(--post-color);
+  transition-duration: .1s;
+}
+
+form button:hover {
+  filter: brightness(1.3);
+}
+
+form button:active {
+  filter: brightness(0.7);
+}
+
+
 .toast {
   position: fixed;
-  right: 10px;
+  right: 50px;
   bottom: -100px;
   background-color: #ccc;
   padding: 15px 50px;
   font-size: 30px;
   transition-duration: .15s;
+  z-index: 100;
+  color: #000
 }
 
 .toast.show {
-  bottom: 10px
+  bottom: 50px
 }
 
 
@@ -146,5 +191,15 @@ textarea:focus {
     border-top-color: #5d4037;
     border-right-color: #271815;
     border-bottom-color: #1a100e;
+  }
+
+  .toast {
+    width: 100dvw;
+    right: 0;
+    text-align: center;
+  }
+
+  .toast.show {
+    bottom: 0;
   }
 }
