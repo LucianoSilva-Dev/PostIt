@@ -11,5 +11,6 @@ model PostIt {
   id        String   @id @default(uuid())
   text      String
   color     String
+  textColor String
   createdAt DateTime @default(now())
 }

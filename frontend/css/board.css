@@ -1,3 +1,12 @@
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #f4f4f5;
+  --accent: #d4ff00;
+  --font-main: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-hand: 'Caveat', cursive;
+}
+
 /* frontend/css/board.css */
 body.board-page {
   background-color: #1b2621; /* Dark chalkboard green */
@@ -12,32 +21,17 @@ body.board-page {
 body.board-page::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100dvw;
+  height: 100dvh;
+  top: -40px;
   pointer-events: none;
   z-index: 50;
-  /* Borda de madeira (várias cores emetizando iluminação global) */
   border: 40px solid #3e2723;
   border-left-color: #4e342e;
   border-top-color: #5d4037;
   border-right-color: #271815;
   border-bottom-color: #1a100e;
-  box-shadow: inset 0 0 100px 40px rgba(0, 0, 0, 0.95),
-              inset 0 0 10px rgba(0,0,0,0.5);
-}
-
-/* Suporte/Bandeja inferior de apagador e giz! Dá uma ancoragem visual sensacional */
-body.board-page::after {
-  content: "";
-  position: absolute;
-  bottom: 30px;
-  left: 40px;
-  right: 40px;
-  height: 15px;
-  background: linear-gradient(to bottom, #795548, #3e2723);
-  z-index: 51;
-  box-shadow: 0 -4px 15px rgba(0,0,0,0.8);
-  border-top: 2px solid #8d6e63;
-  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 /* Textura pura e "suja" de quadro negro com giz apagado */
@@ -67,8 +61,8 @@ body.board-page::after {
 /* Os postits continuam ultra-realistas */
 .post-it {
   position: absolute;
-  width: 280px;
-  min-height: 280px;
+  width: 180px;
+  min-height: 180px;
   padding: 2.5rem;
   box-shadow: 
     3px 15px 25px rgba(0, 0, 0, 0.5),
@@ -90,12 +84,12 @@ body.board-page::after {
   width: 100%;
 }
 
-.post-it::after {
-  content: "";
+.post-it::before {
+  width: 100%;
+  height: 30px;
+  background-color: #0003;
   position: absolute;
-  bottom: 0;
-  right: 0;
-  border-width: 0 0 45px 45px;
-  border-style: solid;
-  border-color: transparent transparent rgba(0,0,0,0.2) transparent;
+  top: 0;
+  left: 0;
+  content: "";
 }

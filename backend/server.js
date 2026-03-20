@@ -68,7 +68,7 @@ app.get('/api/postits', async (req, res) => {
 
 // Rota de POST (submissão de nova ideia pelo celular)
 app.post('/api/postits', async (req, res) => {
-  let { text, color } = req.body;
+  let { text, color, textcolor } = req.body;
 
   if (!text || !color) {
     return res.status(400).json({ error: 'Text and color are required' });
@@ -83,7 +83,8 @@ app.post('/api/postits', async (req, res) => {
     const newPostIt = await prisma.postIt.create({
       data: {
         text,
-        color
+        color,
+        textColor: textcolor,
       }
     });
 
