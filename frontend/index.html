@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Board | Submit</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body class="submit-page">
+  <main class="container">
+    <header class="header">
+      <h1>IDEA <br> VAULT</h1>
+      <p>Materialize the future.</p>
+    </header>
+    
+    <form id="idea-form" class="form">
+      <div class="input-group">
+        <label for="idea-text">THE VISION / MAX 150 CHARS</label>
+        <textarea id="idea-text" maxlength="150" placeholder="Type your entrepreneurial dream..." required></textarea>
+        <span class="char-count">0 / 150</span>
+      </div>
+      
+      <div class="color-picker-wrapper">
+        <label for="idea-color">POST-IT AURA (Color)</label>
+        <input type="color" id="idea-color" value="#FFE566">
+      </div>
+      
+      <button type="submit" class="btn-submit">MANIFEST [ENTER]</button>
+    </form>
+    
+    <div id="toast" class="toast">Idea Sent to the Board.</div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/submit.js"></script>
+</body>
+</html>
