@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api/postits';
+const API_URL = 'https://dreamviewer.up.railway.app:3000/api/postits';
 
 async function submitPostIt(text, color, textcolor) {
   console.log(JSON.stringify({ text, color, textcolor }))
