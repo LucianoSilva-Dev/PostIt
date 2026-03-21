@@ -2,7 +2,7 @@
   --bg-color: #1b2621;
   --text-color: #f4f4f5;
   --accent: #FFE566;
-  --font-main: "Shadows Into Light Two", cursive;
+  --font-main: "Gloria Hallelujah", cursive;
   --font-hand: 'Caveat', cursive;
   --post-color: #000000;
 }
@@ -166,6 +166,17 @@ form button:active {
   filter: brightness(0.7);
 }
 
+.githubInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+a {
+  color: #bee1ff;
+}
 
 .toast {
   position: fixed;

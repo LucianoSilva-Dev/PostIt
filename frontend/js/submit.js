@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const textColorInput = document.getElementById('idea-text-color')
   const charCount = document.querySelector('.char-count');
   const toast = document.getElementById('toast');
+  const postit = document.getElementById('postIt')
+
+  postit.addEventListener('click', () => {
+    textInput.focus()
+  })
 
   textInput.addEventListener('input', () => {
     charCount.textContent = `${textInput.value.length} / 110`;
