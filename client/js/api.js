@@ -1,4 +1,4 @@
-const API_URL = 'https://dreamviewer.up.railway.app:3000/api/postits';
+const API_URL = '/api/postits';
 
 async function submitPostIt(text, color, textcolor) {
   console.log(JSON.stringify({ text, color, textcolor }))
@@ -7,6 +7,9 @@ async function submitPostIt(text, color, textcolor) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ text, color, textcolor })
   });
-  if (!response.ok) throw new Error('Submission failed');
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.error || 'Submission failed');
+  }
   return response.json();
 }

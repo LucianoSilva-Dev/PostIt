@@ -1,5 +1,5 @@
-const API_URL_STREAM = 'http://localhost:3000/api/postits/stream';
-const API_URL_GET = 'http://localhost:3000/api/postits';
+const API_URL_STREAM = '/api/postits/stream';
+const API_URL_GET = '/api/postits';
 
 const container = document.getElementById('board-container');
 let activePostIts = [];

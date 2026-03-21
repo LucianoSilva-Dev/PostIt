@@ -1,14 +1,57 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { PrismaClient } = require('@prisma/client');
 
 const path = require('path');
 const app = express();
 const prisma = new PrismaClient();
 
-app.use(cors());
-app.use(express.json());
+// Trust proxy for Railway/Heroku to get correct client IP
+app.set('trust proxy', 1);
+
+// ----- Security Measures -----
+
+// Use helmet for standard security headers
+app.use(helmet({
+  contentSecurityPolicy: false, // Disabling CSP for simplicity as we use many scripts and styles, but in production this should be configured
+}));
+
+// Basic CORS configuration
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim()) 
+  : ['*'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf('*') !== -1 || allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    }
+    return callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'));
+  }
+}));
+
+// Limit JSON body size to prevent large payload attacks
+app.use(express.json({ limit: '10kb' }));
+
+// Rate limiting for the post submission route
+const postRateLimit = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 10, // limit each IP to 10 requests per windowMs
+  message: { error: 'Too many post-its sent from this IP, please try again after 1 minute' }
+});
+app.use('/api/postits', (req, res, next) => {
+  if (req.method === 'POST') {
+    return postRateLimit(req, res, next);
+  }
+  next();
+});
+
+// ------------------------------
 
 app.use(express.static(path.join(__dirname, './client')));
 
