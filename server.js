@@ -93,7 +93,7 @@ function sendEventToAll(newPostIt) {
 // ----- Routes -----
 
 // Rota para a tela do projetor se conectar e ficar ouvindo novos post-its
-app.get('/api/postits/stream', eventsHandler);
+// app.get('/api/postits/stream', eventsHandler);
 
 // Rota de GET inicial (caso o projetor seja recarregado e precise carregar os últimos 50 post-its)
 app.get('/api/postits', async (req, res) => {
@@ -110,36 +110,36 @@ app.get('/api/postits', async (req, res) => {
 });
 
 // Rota de POST (submissão de nova ideia pelo celular)
-app.post('/api/postits', async (req, res) => {
-  let { text, color, textcolor } = req.body;
+// app.post('/api/postits', async (req, res) => {
+//   let { text, color, textcolor } = req.body;
 
-  if (!text || !color) {
-    return res.status(400).json({ error: 'Text and color are required' });
-  }
+//   if (!text || !color) {
+//     return res.status(400).json({ error: 'Text and color are required' });
+//   }
 
-  // Se o texto vier muito grande, corta para não estourar nossa tela
-  if (text.length > MAX_TEXT_LENGTH) {
-    text = text.substring(0, MAX_TEXT_LENGTH);
-  }
+//   // Se o texto vier muito grande, corta para não estourar nossa tela
+//   if (text.length > MAX_TEXT_LENGTH) {
+//     text = text.substring(0, MAX_TEXT_LENGTH);
+//   }
 
-  try {
-    const newPostIt = await prisma.postIt.create({
-      data: {
-        text,
-        color,
-        textColor: textcolor,
-      }
-    });
+//   try {
+//     const newPostIt = await prisma.postIt.create({
+//       data: {
+//         text,
+//         color,
+//         textColor: textcolor,
+//       }
+//     });
 
-    // Avisa os projetores que tem post-it novo
-    sendEventToAll(newPostIt);
+//     // Avisa os projetores que tem post-it novo
+//     sendEventToAll(newPostIt);
 
-    res.status(201).json(newPostIt);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to create post-it' });
-  }
-});
+//     res.status(201).json(newPostIt);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Failed to create post-it' });
+//   }
+// });
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
