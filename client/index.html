@@ -16,55 +16,36 @@
 </head>
 
 <body class="submit-page">
-  <div class="chalkboard-overlay"></div>
   <main class="container">
-    <header class="header">
-      <h1>Dream Viewer</h1>
-      <p>Onde sonhos se tornam ideias</p>
-    </header>
+    <div class="borderContainer">
 
-    <form id="idea-form" class="form">
-      <div class="input-group">
-        <label for="idea-text">Escreva seus sonhos e ideias</label>
-        <div class="post-it" id="postIt">
-          <div class="post-it-texture"></div>
-          <textarea id="idea-text" maxlength="110" placeholder="Digite algo" required></textarea>
-          <span class="char-count">0 / 110</span>
+    </div>
+    <section>
+      <h1>Dream Viewer</h1>
+      <h2>Onde sonhos se tornam ideias</h2>
+      <p>Código de sala: <span id="roomCode">1234567</span> <button type="fakeLink">Não é este?</button></p>
+      <button type="primary">Fazer a postagem</button>
+      <div class="githubInfos">
+        Veja as mentes por trás
+        <div>
+          <a href="https://github.com/LucianoSilva-Dev" target="_blank">LucianoSilva-Dev (Luciano)</a>
+          <a href="https://github.com/IgorSilva-S" target="_blank">IgorSilva-S (Igor)</a>
         </div>
       </div>
+    </section>
 
-      <div class="color-picker-wrapper">
-        <label for="idea-color">Cor do Post-It</label>
-        <input type="color" id="idea-color" value="#FFE566">
+    <section>
+      <h1>Conteúdo</h1>
+      <p>Dependendo do formato, a quantidade de caracteres pode ser menor</p>
+      <div class="textareaContainer">
+        <textarea name="" id="idea-text" maxlength="110"></textarea>
+        <span id="char-count">0/110</span>
       </div>
-
-      <div class="color-picker-wrapper">
-        <label for="idea-text-color">Cor do Texto do Post-It</label>
-        <input type="color" id="idea-text-color" value="#000">
-      </div>
-
-      <div class="color-picker-wrapper">
-        <label for="textureId">TEXTURE ID (BETA)</label>
-        <input type="number" name="" id="textureId" min="0" max="7" value="0">
-      </div>
-
-      <div class="color-picker-wrapper">
-        <label for="texture-color">TEXTURE COLOR (BETA)</label>
-        <input type="color" id="texture-color" value="#000">
-      </div>
-
-      <button type="submit" class="btn-submit">
-        <p>Enviar Post-It (Enter)</p>
-      </button>
-    </form>
-    <div class="githubInfos">
-      Veja os GitHubs dos desenvolvedores
       <div>
-        <a href="https://github.com/LucianoSilva-Dev" target="_blank">LucianoSilva-Dev (Luciano)</a>
-        <a href="https://github.com/IgorSilva-S" target="_blank">IgorSilva-S (Igor)</a>
+        <button>Voltar</button>
+        <button type="primary">Continuar</button>
       </div>
-    </div>
-    <div id="toast" class="toast">Post-it enviado com sucesso</div>
+    </section>
   </main>
   <script src="js/api.js"></script>
   <script src="js/submit.js"></script>

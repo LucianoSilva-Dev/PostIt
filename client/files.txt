@@ -1,0 +1,46 @@
+    <header class="header">
+      <h1>Dream Viewer</h1>
+      <p>Onde sonhos se tornam ideias</p>
+    </header>
+
+    <form id="idea-form" class="form">
+      <div class="input-group">
+        <label for="idea-text">Escreva seus sonhos e ideias</label>
+        <div class="post-it" id="postIt">
+          <div class="post-it-texture"></div>
+          <textarea id="idea-text" maxlength="110" placeholder="Digite algo" required></textarea>
+          <span class="char-count">0 / 110</span>
+        </div>
+      </div>
+
+      <div class="color-picker-wrapper">
+        <label for="idea-color">Cor do Post-It</label>
+        <input type="color" id="idea-color" value="#FFE566">
+      </div>
+
+      <div class="color-picker-wrapper">
+        <label for="idea-text-color">Cor do Texto do Post-It</label>
+        <input type="color" id="idea-text-color" value="#000">
+      </div>
+
+      <div class="color-picker-wrapper">
+        <label for="textureId">TEXTURE ID (BETA)</label>
+        <input type="number" name="" id="textureId" min="0" max="7" value="0">
+      </div>
+
+      <div class="color-picker-wrapper">
+        <label for="texture-color">TEXTURE COLOR (BETA)</label>
+        <input type="color" id="texture-color" value="#000">
+      </div>
+
+      <button type="submit" class="btn-submit">
+        <p>Enviar Post-It (Enter)</p>
+      </button>
+    </form>
+    <div class="githubInfos">
+      Veja os GitHubs dos desenvolvedores
+      <div>
+        <a href="https://github.com/LucianoSilva-Dev" target="_blank">LucianoSilva-Dev (Luciano)</a>
+        <a href="https://github.com/IgorSilva-S" target="_blank">IgorSilva-S (Igor)</a>
+      </div>
+    </div>

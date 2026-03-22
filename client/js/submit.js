@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const textColorInput = document.getElementById('idea-text-color')
   const textureIdInput = document.getElementById('textureId')
   const textureColorInput = document.getElementById('texture-color')
-  const charCount = document.querySelector('.char-count');
+  const charCount = document.getElementById('char-count');
   const toast = document.getElementById('toast');
   const postit = document.getElementById('postIt')
 
