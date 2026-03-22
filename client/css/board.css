@@ -71,6 +71,17 @@ body.board-page::before {
   align-items: center;
   justify-content: center;
   will-change: transform;
+  z-index: 1;
+}
+
+.post-it-texture {
+  width: 100%;
+  height: 100%; 
+  mask-image: url(../img/textures/0.png);
+  background-color: #000000;
+  opacity: 0.4;
+  position: absolute;
+  z-index: 0;
 }
 
 .post-it-text {
@@ -82,6 +93,7 @@ body.board-page::before {
   text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
   word-wrap: break-word;
   width: 100%;
+  z-index: 2;
 }
 
 .post-it::before {

@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const textInput = document.getElementById('idea-text');
   const colorInput = document.getElementById('idea-color');
   const textColorInput = document.getElementById('idea-text-color')
+  const textureIdInput = document.getElementById('textureId')
+  const textureColorInput = document.getElementById('texture-color')
   const charCount = document.querySelector('.char-count');
   const toast = document.getElementById('toast');
   const postit = document.getElementById('postIt')
@@ -25,6 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.setProperty('--post-color', e.target.value)
   })
 
+  textureIdInput.addEventListener('input', (e) => {
+    document.querySelector('.post-it-texture').style.maskImage = `url(./img/textures/${e.target.value}.png)`
+  })
+
+  textureColorInput.addEventListener('input', (e) => {
+    document.documentElement.style.setProperty('--texture-color', e.target.value)
+  })
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('.btn-submit');
@@ -33,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true;
 
     try {
-      await submitPostIt(textInput.value, colorInput.value, textColorInput.value);
+      await submitPostIt(textInput.value, colorInput.value, textColorInput.value, textureIdInput.value, textureColorInput.value);
       textInput.value = '';
       charCount.textContent = '0 / 110';
 

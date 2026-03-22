@@ -5,6 +5,7 @@
   --font-main: "Gloria Hallelujah", cursive;
   --font-hand: 'Caveat', cursive;
   --post-color: #000000;
+  --texture-color: #000000;
 }
 
 
@@ -15,7 +16,6 @@
 
 body {
   width: 100dvw;
-  height: 100dvh;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ body {
   font-size: 20px;
 }
 
-body::after {
+/* body::after {
   content: "";
   position: absolute;
   width: 100dvw;
@@ -42,7 +42,7 @@ body::after {
   border-right-color: #271815;
   border-bottom-color: #1a100e;
   box-sizing: border-box;
-}
+} */
 
 .chalkboard-overlay {
   position: absolute;
@@ -93,6 +93,16 @@ form {
   cursor: text;
 }
 
+.post-it-texture {
+  width: 100%;
+  height: 100%; 
+  mask-image: url(../img/textures/0.png);
+  background-color: var(--texture-color);
+  opacity: 0.4;
+  position: absolute;
+  z-index: 0;
+}
+
 textarea {
   font-family: var(--font-hand);
   font-size: 2.2rem;
@@ -109,6 +119,7 @@ textarea {
   text-align: center;
   overflow: hidden;
   color: var(--post-color);
+  z-index: 2;
 }
 
 .char-count {
@@ -132,6 +143,7 @@ textarea:focus {
   top: 0;
   left: 0;
   content: "";
+  z-index: 2;
 }
 
 .color-picker-wrapper {

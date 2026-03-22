@@ -1,5 +1,10 @@
-const API_URL_STREAM = '/api/postits/stream';
-const API_URL_GET = '/api/postits';
+let API_URL_STREAM = '/api/postits/stream';
+let API_URL_GET = '/api/postits';
+
+if (devMode) {
+  API_URL_GET = devPort + API_URL_GET
+  API_URL_STREAM = devPort + API_URL_STREAM
+}
 
 const container = document.getElementById('board-container');
 let activePostIts = [];
@@ -59,6 +64,12 @@ function spawnPostIt(data, delayOffsetY = 0) {
   const el = document.createElement('div');
   el.className = 'post-it';
   el.style.backgroundColor = data.color;
+
+  const texture = document.createElement('div')
+  texture.className = 'post-it-texture'
+  texture.style.maskImage = `url(./img/textures/${data.textureId}.png)`
+  texture.style.backgroundColor = data.textureColor
+  el.appendChild(texture)
 
   const textEl = document.createElement('div');
   textEl.className = 'post-it-text';

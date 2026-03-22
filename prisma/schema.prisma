@@ -8,9 +8,11 @@ datasource db {
 }
 
 model PostIt {
-  id        String   @id @default(uuid())
-  text      String
-  color     String
-  textColor String
-  createdAt DateTime @default(now())
+  id           String   @id @default(uuid())
+  text         String
+  color        String
+  textColor    String
+  textureId    String
+  textureColor String
+  createdAt    DateTime @default(now())
 }

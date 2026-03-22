@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 </head>
@@ -27,6 +27,7 @@
       <div class="input-group">
         <label for="idea-text">Escreva seus sonhos e ideias</label>
         <div class="post-it" id="postIt">
+          <div class="post-it-texture"></div>
           <textarea id="idea-text" maxlength="110" placeholder="Digite algo" required></textarea>
           <span class="char-count">0 / 110</span>
         </div>
@@ -40,6 +41,16 @@
       <div class="color-picker-wrapper">
         <label for="idea-text-color">Cor do Texto do Post-It</label>
         <input type="color" id="idea-text-color" value="#000">
+      </div>
+
+      <div class="color-picker-wrapper">
+        <label for="textureId">TEXTURE ID (BETA)</label>
+        <input type="number" name="" id="textureId" min="0" max="7" value="0">
+      </div>
+
+      <div class="color-picker-wrapper">
+        <label for="texture-color">TEXTURE COLOR (BETA)</label>
+        <input type="color" id="texture-color" value="#000">
       </div>
 
       <button type="submit" class="btn-submit">
