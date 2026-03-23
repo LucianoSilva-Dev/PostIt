@@ -20,11 +20,13 @@
     <div class="borderContainer">
 
     </div>
-    <section>
+    <section style="display: flex;">
       <h1>Dream Viewer</h1>
       <h2>Onde sonhos se tornam ideias</h2>
-      <p>Código de sala: <span id="roomCode">1234567</span> <button type="fakeLink">Não é este?</button></p>
-      <button type="primary">Fazer a postagem</button>
+      <p>Código de sala: <span class="roomCode">1234567</span> <button type="fakeLink">Não é este?</button></p>
+      <br>
+      <button type="primary" action="next">Fazer a postagem</button>
+      <br>
       <div class="githubInfos">
         Veja as mentes por trás
         <div>
@@ -36,14 +38,119 @@
 
     <section>
       <h1>Conteúdo</h1>
-      <p>Dependendo do formato, a quantidade de caracteres pode ser menor</p>
-      <div class="textareaContainer">
+      <p>Insira aqui o texto que você deseja que apareça no post-it</p>
+      <div class="post-it" id="postIt">
+        <div class="post-it-texture"></div>
         <textarea name="" id="idea-text" maxlength="110"></textarea>
         <span id="char-count">0/110</span>
       </div>
-      <div>
-        <button>Voltar</button>
-        <button type="primary">Continuar</button>
+      <br>
+      <h1>Personalização</h1>
+      <div class="alignLeft">
+        <p>Cores</p>
+        <div class="color-picker-wrapper">
+          <label for="idea-color">Post-It</label>
+          <input type="color" id="idea-color" value="#FFE566">
+        </div>
+        <div class="color-picker-wrapper">
+          <label for="idea-text-color">Texto</label>
+          <input type="color" id="idea-text-color" value="#000000">
+        </div>
+        <br>
+        <p>Textura</p>
+        <div class="textureAlign" id="textureId">
+          <label for="noTexture" class="selectedLabel">
+            <img src="./img/textures/icons/0.png" alt="">
+          </label>
+          <label for="squareTexture">
+            <img src="./img/textures/icons/1.png" alt="">
+          </label>
+          <label for="circleTexture">
+            <img src="./img/textures/icons/2.png" alt="">
+          </label>
+          <label for="triangleTexture">
+            <img src="./img/textures/icons/3.png" alt="">
+          </label>
+          <label for="starTexture">
+            <img src="./img/textures/icons/4.png" alt="">
+          </label>
+          <label for="heartTexture">
+            <img src="./img/textures/icons/5.png" alt="">
+          </label>
+          <label for="leafTexture">
+            <img src="./img/textures/icons/6.png" alt="">
+          </label>
+          <label for="rotatedSquareTexture">
+            <img src="./img/textures/icons/7.png" alt="">
+          </label>
+          <input type="radio" name="textureChoose" id="noTexture" value="0">
+          <input type="radio" name="textureChoose" id="squareTexture" value="1">
+          <input type="radio" name="textureChoose" id="circleTexture" value="2">
+          <input type="radio" name="textureChoose" id="triangleTexture" value="3">
+          <input type="radio" name="textureChoose" id="starTexture" value="4">
+          <input type="radio" name="textureChoose" id="heartTexture" value="5">
+          <input type="radio" name="textureChoose" id="leafTexture" value="6">
+          <input type="radio" name="textureChoose" id="rotatedSquareTexture" value="7">
+        </div>
+      </div>
+      <div class="color-picker-wrapper">
+        <label for="texture-color">Cor Textura</label>
+        <input type="color" id="texture-color" value="#000000">
+      </div>
+      <br>
+      <div class="buttonContainer">
+        <button type="secondary" action="back">Voltar</button>
+        <button type="primary" action="next" exception="haveText">Continuar</button>
+      </div>
+    </section>
+
+    <section>
+      <h1>Confirmação</h1>
+      <div class="alignLeft">
+        <p>Publicando na sala <span class="roomCode">1234567</span></p>
+        <br>
+        <p>Texto da postagem:</p>
+        <span id="confirmText"></span>
+        <br>
+
+      </div>
+      <div class="buttonContainer">
+        <button type="secondary" action="back">Voltar</button>
+        <button type="primary" action="post">Postar</button>
+      </div>
+    </section>
+
+    <section>
+      <h1>Algo deu errado!</h1>
+      <p>Tente postar novamente, caso não consiga, reinicie o site.</p>
+      <div class="buttonContainer">
+        <button type="secondary" action="reload">Reiniciar site</button>
+        <button type="primary" action="post">Tentar novamente</button>
+      </div>
+    </section>
+
+    <section>
+      <h1>Publicado!</h1>
+      <p>Seu post-it foi publicado com sucesso! Aguarde o mesmo aparecer na tela de exibição</p>
+      <br>
+      <button type="primary" action="home">Voltar para o início</button>
+    </section>
+
+    <section>
+      <h1>Dream Viewer</h1>
+      <h2>Onde sonhos se tornam ideias</h2>
+      <br>
+      <p>Insira o código da sala abaixo</p>
+      <input type="text" id="roomCode" autocomplete="off" maxlength="7">
+      <br>
+      <button type="primary" action="useCode">Usar código</button>
+      <br>
+      <div class="githubInfos">
+        Veja as mentes por trás
+        <div>
+          <a href="https://github.com/LucianoSilva-Dev" target="_blank">LucianoSilva-Dev (Luciano)</a>
+          <a href="https://github.com/IgorSilva-S" target="_blank">IgorSilva-S (Igor)</a>
+        </div>
       </div>
     </section>
   </main>
