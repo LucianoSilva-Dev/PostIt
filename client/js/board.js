@@ -1,11 +1,3 @@
-let API_URL_STREAM = '/api/postits/stream';
-let API_URL_GET = '/api/postits';
-
-if (devMode) {
-  API_URL_GET = devPort + API_URL_GET
-  API_URL_STREAM = devPort + API_URL_STREAM
-}
-
 const container = document.getElementById('board-container');
 let activePostIts = [];
 

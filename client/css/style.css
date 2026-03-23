@@ -26,6 +26,22 @@ body {
     font-family: var(--font-main);
 }
 
+.chalkboard-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.02) 2px,
+      rgba(255, 255, 255, 0.02) 4px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .borderContainer {
     width: 100%;
     box-sizing: border-box;

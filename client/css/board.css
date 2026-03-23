@@ -9,50 +9,60 @@
 
 /* frontend/css/board.css */
 body.board-page {
-  background-color: #1b2621; /* Dark chalkboard green */
+  background-color: #1b2621;
+  /* Dark chalkboard green */
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
   margin: 0;
   position: relative;
+  overflow: hidden;
 }
 
 /* Moldura realista de madeira em volta de todo o ecossistema + sombras super pesadas e imersivas */
-body.board-page::before {
-  content: "";
-  position: absolute;
-  width: 100dvw;
-  height: 100dvh;
-  top: -40px;
-  pointer-events: none;
-  z-index: 50;
+.borderContainer {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 100vh;
+  max-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
   border: 40px solid #3e2723;
   border-left-color: #4e342e;
   border-top-color: #5d4037;
   border-right-color: #271815;
   border-bottom-color: #1a100e;
-  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  pointer-events: none;
 }
 
 /* Textura pura e "suja" de quadro negro com giz apagado */
 .chalkboard-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.5) 100%);
-  background-image: repeating-linear-gradient(
-      0deg,
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: repeating-linear-gradient(0deg,
       transparent,
       transparent 2px,
       rgba(255, 255, 255, 0.02) 2px,
-      rgba(255, 255, 255, 0.02) 4px
-  );
+      rgba(255, 255, 255, 0.02) 4px);
   pointer-events: none;
   z-index: 0;
 }
 
 .board-container {
   position: relative;
-  width: calc(100% - 80px); /* Respeita a espessura frame da borda - 40 esquerda e 40 direita */
+  width: calc(100% - 80px);
+  /* Respeita a espessura frame da borda - 40 esquerda e 40 direita */
   height: calc(100% - 80px);
   margin: 40px;
   z-index: 10;
@@ -64,7 +74,7 @@ body.board-page::before {
   width: 180px;
   min-height: 180px;
   padding: 2.5rem;
-  box-shadow: 
+  box-shadow:
     3px 15px 25px rgba(0, 0, 0, 0.5),
     inset -2px -2px 10px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -76,7 +86,7 @@ body.board-page::before {
 
 .post-it-texture {
   width: 100%;
-  height: 100%; 
+  height: 100%;
   mask-image: url(../img/textures/0.png);
   background-color: #000000;
   opacity: 0.4;
@@ -90,7 +100,7 @@ body.board-page::before {
   line-height: 1.2;
   color: #1a1a1a;
   text-align: center;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
   word-wrap: break-word;
   width: 100%;
   z-index: 2;
@@ -104,4 +114,14 @@ body.board-page::before {
   top: 0;
   left: 0;
   content: "";
+}
+
+@media (max-width: 500px) {
+  .borderContainer {
+    border: 20px solid #3e2723;
+    border-left-color: #4e342e;
+    border-top-color: #5d4037;
+    border-right-color: #271815;
+    border-bottom-color: #1a100e;
+  }
 }
