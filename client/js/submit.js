@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (att == 'post') {
       b.addEventListener('click', async () => {
         try {
-          await submitPostIt(textInput.value, colorInput.value, textColorInput.value, textureId.toString(), textureColorInput.value);
+          await submitPostIt(textInput.value, colorInput.value, textColorInput.value, textureId.toString(), textureColorInput.value, roomCode);
 
           actualPage = 4
           let pages = Array.from(document.getElementsByTagName('section'))
