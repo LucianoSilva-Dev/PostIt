@@ -189,4 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
   textureColorInput.addEventListener('input', (e) => {
     document.documentElement.style.setProperty('--texture-color', e.target.value)
   })
+
+  document.getElementById('roomCode').addEventListener('keyup', (e) => {
+    if (e.key == 'Enter') {
+      document.getElementById('useCodeButton').click()
+    }
+  })
 });
