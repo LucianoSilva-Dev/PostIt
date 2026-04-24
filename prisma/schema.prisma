@@ -15,4 +15,5 @@ model PostIt {
   textureId    String
   textureColor String
   createdAt    DateTime @default(now())
+  roomCode     String
 }

@@ -2,7 +2,7 @@ let API_URL = '/api/postits';
 let API_URL_STREAM = '/api/postits/stream';
 let API_URL_GET = '/api/postits';
 const devPort = 'http://localhost:3000';
-const devMode = false
+const devMode = true
 
 if (devMode) {
   API_URL = devPort + API_URL

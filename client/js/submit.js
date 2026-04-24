@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
           actualPage = 3
           let pages = Array.from(document.getElementsByTagName('section'))
+          document.getElementById('errTxt').innerText = err
           pages.forEach(p => {
             p.style.opacity = '0'
             setTimeout(() => {
